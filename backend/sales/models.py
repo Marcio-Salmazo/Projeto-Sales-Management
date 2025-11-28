@@ -1,6 +1,6 @@
 from django.db import models
-from ..users.models import Client, Employee
-from ..products.models import Product
+from users.models import Customers, Employee
+from products.models import Product
 
 
 class PaymentMethod(models.Model):
@@ -12,7 +12,7 @@ class PaymentMethod(models.Model):
 
 
 class Sale(models.Model):
-    cliente = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
+    cliente = models.ForeignKey(Customers, on_delete=models.SET_NULL, null=True)
     funcionario = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True)
     data = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, default='Concluída')
@@ -24,7 +24,7 @@ class Sale(models.Model):
 
     # Campo opcional caso seja pago via cartão salvo
     cartao_usado = models.ForeignKey(
-        'cards.PaymentCard',
+        'cards.Payment_Cards',
         on_delete=models.SET_NULL,
         null=True,
         blank=True

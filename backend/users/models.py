@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # A classe client representa a entidade descrita no modelo ER
 # Ela herda a biblioteca Models, fornecida pelo Django
-class Client(models.Model):
+class Customers(models.Model):
 
     # Definição dos atributos da entidade
     # OneToOneField significa herança estendida: o perfil complementa o User.

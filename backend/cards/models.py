@@ -1,5 +1,5 @@
 from django.db import models
-from ..users.models import Client
+from users.models import Customers
 
 
 class Payment_Cards(models.Model):
@@ -12,7 +12,7 @@ class Payment_Cards(models.Model):
 
     # Um cliente pode ter vários cartões.
     # Vendas usarão apenas ID do cartão, se aplicável.
-    cliente = models.ForeignKey(Client, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Customers, on_delete=models.CASCADE)
     numero = models.CharField(max_length=20)
     nome_cartao = models.CharField(max_length=100)
     validade = models.CharField(max_length=7)  # MM/AAAA
